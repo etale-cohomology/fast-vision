@@ -1,6 +1,6 @@
 # FastVision
 
-__FastVision__ allows access to the screen's pixel values at __thousands of fps__ on platforms running the [X Window System](https://en.wikipedia.org/wiki/X_Window_System) (eg. [Linux](https://www.kernel.org/)).
+__FastVision__ allows access to the screen's pixel values at __thousands of fps__ on platforms running the [X Window System](https://en.wikipedia.org/wiki/X_Window_System) (eg. [Linux](https://kernel.org/)).
 
 This is useful to run computer vision algorithms in real time on the screen's contents, although it can also be used to take screenshots or record video as a sequence of screenshots. (Note that "the display's contents" can be a virtual machine running (say) Windows, and in that way it's possible to get the pixels of programs that run only on (say) Windows.)
 
@@ -151,22 +151,22 @@ int main(){
 
 ## How
 
-Such performance is possible thanks to the [MIT Shared Memory Extension](https://www.x.org/releases/X11R7.7/doc/xextproto/shm.html), which provides [shared memory](https://en.wikipedia.org/wiki/Shared_memory) [XImages](http://rpm.pbone.net/index.php3/stat/45/idpl/1646374/numer/1/nazwa/ximage). An __XImage__ is an X _client side_ storage mechanism for an X __pixel map__.
+Such performance is possible thanks to the [MIT Shared Memory Extension](https://x.org/releases/X11R7.7/doc/xextproto/shm.html), which provides [shared memory](https://en.wikipedia.org/wiki/Shared_memory) [XImages](http://rpm.pbone.net/index.php3/stat/45/idpl/1646374/numer/1/nazwa/ximage). An __XImage__ is an X _client side_ storage mechanism for an X __pixel map__.
 
 Using "vanilla" X, at most 180 fps were achieved with the same hardware. This repo also includes such "vanilla" implementation, for reference!
 
 
 ## Why
 
-We wanted access to the screen's pixel values as fast as possible to run computer vision algorithms on the screen's contents, but neither the  [X](ftp://www.x.org/pub/current/doc/libX11/libX11/libX11.html) interface (which provides the [XGetImage](https://linux.die.net/man/3/xgetimage) function) nor the more recent [xcb](https://xcb.freedesktop.org/) interface gave satisfactory results, even with multi-threading and SIMD extensions.
+We wanted access to the screen's pixel values as fast as possible to run computer vision algorithms on the screen's contents, but neither the  [X](ftp://x.org/pub/current/doc/libX11/libX11/libX11.html) interface (which provides the [XGetImage](https://linux.die.net/man/3/xgetimage) function) nor the more recent [xcb](https://xcb.freedesktop.org/) interface gave satisfactory results, even with multi-threading and SIMD extensions.
 
 
 ## Dependencies
 
 [X Window System](https://en.wikipedia.org/wiki/X_Window_System) (UNIX-like platforms)  
-[MIT Shared Memory Extension](https://www.x.org/releases/X11R7.7/doc/xextproto/shm.html) (an extension to the X Window System)  
+[MIT Shared Memory Extension](https://x.org/releases/X11R7.7/doc/xextproto/shm.html) (an extension to the X Window System)  
 [OpenCV](https://github.com/opencv/opencv) (Optional). To visualize your screen as a video feed, and to run computer vision stuff  
 
-To quote [from](https://www.x.org/releases/X11R7.7/doc/xextproto/shm.html):
+To quote [from](https://x.org/releases/X11R7.7/doc/xextproto/shm.html):
 
 _To find out if your server supports the extension, use xdpyinfo(1). In particular, to be able to use this extension, your system must provide the SYSV shared memory primitives. There is not an mmap-based version of this extension._
