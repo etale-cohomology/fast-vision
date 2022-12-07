@@ -5,11 +5,6 @@ __FastVision__ allows access to the screen's pixel values at __thousands of fps_
 This is useful to run computer vision algorithms in real time on the screen's contents, although it can also be used to take screenshots or record video as a sequence of screenshots. (Note that "the display's contents" can be a virtual machine running (say) Windows, and in that way it's possible to get the pixels of programs that run only on (say) Windows.)
 
 
-## Performance
-
-On a box with one NVIDIA Titan X (Maxwell), this runs at 15,000 fps (including the time it takes to load the data as an OpenCV `cv::mat` object).
-
-
 ## Features
 
 FastVision is fast, barebones, and header-only.
